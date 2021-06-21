@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Students List</h1>  
+
+{% if students %}
+  {% for student in students  %}
+    <div class="card" style="width: 18rem;">
+      <a href="{% url 'detail' student.id %}">
+        <div class="card-body">
+          <h5 class="card-title">{{ student.name }}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">{{student.city}} </h6>
+          <p class="card-text">{{student.age}}</p>
+          <p class="card-text">{{student.bio}}.</p>
+        
+        </div>
+      </a>
+    </div>
+
+  {% endfor %}
+
+{% else %}
+  <p>There are not students yet</p>
+
+{% endif %}
+
+
+
+{% endblock content %}
